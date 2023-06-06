@@ -12,9 +12,9 @@ import time
 
 ### COLOUR CONSTANTS 
 # Upper RGB bounds for Black colour
-RED_BOUND_BLACK, BLUE_BOUND_BLACK, GREEN_BOUND_BLACK = 30, 30, 30
+RED_BOUND_BLACK, BLUE_BOUND_BLACK, GREEN_BOUND_BLACK = 15, 15, 15
 # Lower RGB bounds for White colour
-RED_BOUND_WHITE, BLUE_BOUND_WHITE, GREEN_BOUND_WHITE = 180, 180, 180
+RED_BOUND_WHITE, BLUE_BOUND_WHITE, GREEN_BOUND_WHITE = 150, 150, 150
 # Ratio for RB channels compared to G for Green colour
 GREEN_RATIO = (4/5)
 
@@ -106,4 +106,9 @@ def get_colour(colour_array,size):
     
     # Return the most common colour reading
     return COLOUR_NAMES[max_index]
-    
+
+colourSensor = TCS34725()
+
+while True:
+    print(run_colour_sensor(colourSensor, True))
+    time.sleep(2)
