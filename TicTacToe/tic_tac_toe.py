@@ -23,13 +23,23 @@ def display_board(board):
 
 
 
-def User1Turn(board):
-    pos=input("Enter X's position from [1...9]: ");
-    pos=int(pos);
-    if(board[pos-1]!=0):
-        print("Space occupied, try again.");
-        User1Turn(board);
-    board[pos-1]=-1;
+def user1_turn(board):
+    """
+    Performs a turn for User 1 (X) by updating the board.
+
+    Args:
+        board (list): List representing the Tic-Tac-Toe board.
+
+    Returns:
+        bool: True if the turn was successful, False otherwise.
+    """
+    pos = input("Enter X's position from [1...9]: ")
+    pos = int(pos)
+    if board[pos - 1] != 0:
+        print("Space occupied, try again.")
+        return False
+    board[pos - 1] = -1
+    return True
 
 
 def User2Turn(board):
@@ -100,14 +110,14 @@ def main():
                 CompTurn(board);
             else:
                 display_board(board);
-                User1Turn(board);
+                user1_turn(board);
     else:
         for i in range (0,9):
             if(analyzeboard(board)!=0):
                 break;
             if((i)%2==0):
                 display_board(board);
-                User1Turn(board);
+                user1_turn(board);
             else:
                 display_board(board);
                 User2Turn(board);
@@ -123,4 +133,4 @@ def main():
         display_board(board);
         print("X Loose!!! O Wins !!!!")
        
-main()
+# main()

@@ -1,4 +1,4 @@
-from tic_tac_toe import display_board
+from tic_tac_toe import display_board, user1_turn
 import pytest
 
 def test_display_board():
@@ -33,3 +33,19 @@ def test_display_board():
     # X X X
     # X X X
     # X X X
+
+def test_user1_turn(monkeypatch):
+    """
+    Test function for user1_turn().
+    """
+    board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    # Test case 1: Valid input
+    monkeypatch.setattr('builtins.input', lambda _: '5') # simulates 'input' function
+    assert user1_turn(board) == True
+    assert board == [0, 0, 0, 0, -1, 0, 0, 0, 0]
+
+    # Test case 2: Invalid input (occupied space)
+    monkeypatch.setattr('builtins.input', lambda _: '5')
+    assert user1_turn(board) == False
+    assert board == [0, 0, 0, 0, -1, 0, 0, 0, 0]
