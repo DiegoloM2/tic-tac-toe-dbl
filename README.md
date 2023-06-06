@@ -8,3 +8,13 @@
 - We have the LDR folder with simple LDR which is just a way of implementing the LDR, I created this one myself.
 - We have the servo folder that has some basic servo control, I created that one as well.
 - In the root we have tic_tact_toe.py which was the first version of the algo.
+
+
+# Testing
+The project includes tests to ensure the correctness of its functionality. We use [pytest](https://docs.pytest.org/) as our testing framework. To run the tests, follow these steps:
+
+1. Make sure you have pytest installed. If not, install it using: `pip install pytest`
+2. Navigate to the project's root directory.
+3. Run the following command to execute the tests: `pytest`
+The tests will be discovered and executed, and the test results will be displayed in the console.
+
