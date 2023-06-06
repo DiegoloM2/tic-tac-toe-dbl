@@ -15,6 +15,6 @@ The project includes tests to ensure the correctness of its functionality. We us
 
 1. Make sure you have pytest installed. If not, install it using: `pip install pytest`
 2. Navigate to the project's root directory.
-3. Run the following command to execute the tests: `pytest`
+3. Run the following command to execute the tests: `python -m pytest` or `pytest` (depending on OS and environment variables)
 The tests will be discovered and executed, and the test results will be displayed in the console.
 
