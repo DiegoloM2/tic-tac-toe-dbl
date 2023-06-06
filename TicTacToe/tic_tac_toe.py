@@ -5,16 +5,21 @@ def display_board(board):
     Args:
         board (list): List representing the Tic-Tac-Toe board.
     """
+
+    board_display = ""
+
     for i in range(0, 9):
         if (i > 0 and i % 3 == 0):
-            print("\n")
+            board_display += "\n"
         if (board[i] == 0):
-            print("- ", end=" ")
+            board_display += "- "
         if (board[i] == 1):
-            print("O ", end=" ")
+            board_display += "O "
         if (board[i] == -1):
-            print("X ", end=" ")
-    print("\n\n")
+            board_display += "X "
+    board_display += "\n\n"
+    print(board_display)
+    return board_display
 
 
 
