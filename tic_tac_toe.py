@@ -1,14 +1,21 @@
-def ConstBoard(board):
-    for i in range (0,9):
-        if((i>0) and (i%3)==0):
-            print("\n");
-        if(board[i]==0):
-            print("- ",end=" ");
-        if (board[i]==1):
-            print("O ",end=" ");
-        if(board[i]==-1):    
-            print("X ",end=" ");
-    print("\n\n");
+def display_board(board):
+    """
+    Displays the Tic-Tac-Toe board.
+
+    Args:
+        board (list): List representing the Tic-Tac-Toe board.
+    """
+    for i in range(0, 9):
+        if (i > 0 and i % 3 == 0):
+            print("\n")
+        if (board[i] == 0):
+            print("- ", end=" ")
+        if (board[i] == 1):
+            print("O ", end=" ")
+        if (board[i] == -1):
+            print("X ", end=" ")
+    print("\n\n")
+
 
 
 def User1Turn(board):
@@ -87,28 +94,28 @@ def main():
             if((i+player)%2==0):
                 CompTurn(board);
             else:
-                ConstBoard(board);
+                display_board(board);
                 User1Turn(board);
     else:
         for i in range (0,9):
             if(analyzeboard(board)!=0):
                 break;
             if((i)%2==0):
-                ConstBoard(board);
+                display_board(board);
                 User1Turn(board);
             else:
-                ConstBoard(board);
+                display_board(board);
                 User2Turn(board);
          
     x=analyzeboard(board);
     if(x==0):
-        ConstBoard(board);
+        display_board(board);
         print("Draw!!!")
     if(x==-1):
-        ConstBoard(board);
+        display_board(board);
         print("X Wins!!! Y Loose !!!")
     if(x==1):
-        ConstBoard(board);
+        display_board(board);
         print("X Loose!!! O Wins !!!!")
        
 main()
