@@ -83,17 +83,44 @@ def minimax(board, player):
     return best_value  # Return the optimal value for the current player    
     
 def CompTurn(board):
-    pos=-1;
-    value=-2;
-    for i in range(0,9):
-        if(board[i]==0):
-            board[i]=1;
-            score=-minimax(board, -1);
-            board[i]=0;
-            if(score>value):
-                value=score;
-                pos=i;
-    board[pos]=1;
+    """
+    Function to determine and make the computer's optimal turn in a Tic-Tac-Toe game.
+
+    Parameters:
+    - board: List representing the current state of the Tic-Tac-Toe board.
+
+    Returns:
+    - None
+
+    Side Effects:
+    - Modifies the board list to make the optimal move for the computer (uses value 1).
+
+    Algorithm:
+    1. Initialize the position (pos) variable for the optimal move to -1.
+    2. Initialize the initial value (value) for the best score to -2.
+    3. Iterate over the board positions from 0 to 8.
+        a. Check if the board position is empty (board[i] == 0).
+        b. If it is empty, assume the current position for the computer's move by setting it to 1.
+        c. Calculate the opponent's best score by recursively calling the minimax function with the updated board and player as -1.
+        d. Reset the current position on the board by setting it back to 0.
+        e. Compare the score obtained with the current best value.
+        f. If the score is higher, update the best value and the optimal position.
+    4. Set the board at the optimal position to 1, representing the computer's move.
+    """
+    pos = -1  # Initialize the position variable for the optimal move
+    value = -2  # Initialize the initial value for the best score
+
+    for i in range(0, 9):
+        if board[i] == 0:  # If the board position is empty
+            board[i] = 1  # Assume the current position for the computer's move
+            score = -minimax(board, -1)  # Recursively calculate the opponent's best score
+            board[i] = 0  # Reset the current position on the board
+
+            if score > value:  # Compare the score obtained with the current best value
+                value = score  # Update the best value
+                pos = i  # Update the optimal position
+
+    board[pos] = 1  # Set the board at the optimal position to 1, representing the computer's move
 
 
 def analyze_board(board):
@@ -142,7 +169,7 @@ def main():
                 CompTurn(board)
             else:
                 display_board(board)
-                player_turn(board, 1)  # Player's turn
+                player_turn(board, -1)  # Player's turn
 
     else:
         for i in range(0, 9):
