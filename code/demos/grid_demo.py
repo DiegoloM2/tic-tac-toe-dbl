@@ -1,4 +1,4 @@
-from dc_driver.AMSpi import *
+from libraries.Drivers.dc_driver.AMSpi import *
 import RPi.GPIO as GPIO
 import time
 

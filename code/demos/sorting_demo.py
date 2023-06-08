@@ -1,12 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
-from color_driver.TCS34725_class import TCS34725
-from color_driver.color_functions import *
+from libraries.Drivers.color_driver.TCS34725_class import TCS34725
+from libraries.Drivers.color_driver.color_functions import *
 
-from LDR_driver.LDR_control import *
+from libraries.Drivers.LDR_driver.LDR_control import *
 
-from servo_driver.servo_control import *
+from libraries.Drivers.servo_driver.servo_control import *
 
 colourSensor = TCS34725()
 set_angle(90)
