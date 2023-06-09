@@ -5,17 +5,36 @@ from TicTacToe.tic_tac_toe import *
 
 # ------ Grid Control ------ #
     
-def resetBoard(amspi):
-    amspi.run_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])
-    time.sleep(2.5)
-    amspi.stop_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])
+def reset_board(amspi):
+    """
+    Reset the board by running the DC motors for a specific duration and then stopping them.
+
+    Parameters:
+    - amspi: Object representing the Adafruit Motor Shield (AMS) for controlling the DC motors.
+
+    Returns:
+    - None
+
+    Side Effects:
+    - Runs the specified DC motors for a duration of 2.5 seconds and then stops them.
+
+    """
+    amspi.run_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Run the specified DC motors
+    time.sleep(2.5)  # Wait for 2.5 seconds
+    amspi.stop_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Stop the specified DC motors
 
 def positionTwo(amspi):
+    """
+    Moves the conveyor to position 2.
+    """
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
     time.sleep(0.8)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
 
 def positionThree(amspi):
+    """
+    Moves the conveyor to position 3.
+    """
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
     time.sleep(1.6)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
@@ -77,42 +96,42 @@ def makeMove(pos, amspi):
     elif pos == 2:
         positionTwo(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)
+        reset_board(amspi)
     elif pos == 3:
         positionThree(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)
+        reset_board(amspi)
     elif pos == 4:
         positionFour(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)        
+        reset_board(amspi)        
     elif pos == 5:        
         positionFive(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)
+        reset_board(amspi)
     elif pos == 6:
         positionSix(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)        
+        reset_board(amspi)        
     elif pos == 7:
         positionSeven(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)        
+        reset_board(amspi)        
     elif pos == 8:
         positionEight(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)        
+        reset_board(amspi)        
     elif pos == 9:
         positionNine(amspi)
         runConveyor(amspi)
-        resetBoard(amspi)        
+        reset_board(amspi)        
         
 def main():
     amspi = AMSpi()
     amspi.set_74HC595_pins(14, 15, 18)
     amspi.set_L293D_pins(PWM0B=17, PWM0A=27, PWM2B=22)
     
-    resetBoard(amspi)
+    reset_board(amspi)
     
     choice= int(input("Enter 1 for single player, 2 for multiplayer: "))
     board=[0,0,0,0,0,0,0,0,0]
