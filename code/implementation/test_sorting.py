@@ -1,5 +1,5 @@
 import pytest
-from sorting_demo import detect_disk, sort_disk, run_colour_sensor, TCS34725
+from sorting import detect_disk, sort_disk, run_colour_sensor, TCS34725
 import time
 
 def test_detect_white_disk():

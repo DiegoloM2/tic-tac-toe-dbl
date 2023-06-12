@@ -1,5 +1,5 @@
 from libraries.Drivers.dc_driver.AMSpi import *
-from grid_demo import *
+from grid import *
 import time
 import pytest
 
