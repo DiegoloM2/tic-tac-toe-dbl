@@ -21,18 +21,18 @@ class Sorting():
         set_angle(90)
 
     def timeToSort(self, ):
-        if detect_disk(self.colorSensor) == "White" and self.lastDisk == 0:
+        if self.detect_disk(self.colorSensor) == "White" and self.lastDisk == 0:
             print("White Disk Detected -> Time To Sort!")
             lastDisk = 1
             return True
-        elif detect_disk(self.colorSensor) == "Black" and self.lastDisk == 1:
+        elif self.detect_disk(self.colorSensor) == "Black" and self.lastDisk == 1:
             print("Black Disk Detected -> Time To Sort!")
             lastDisk = 0
             return True
-        elif detect_disk(self.colorSensor) == "Black" and self.lastDisk == 0:
+        elif self.detect_disk(self.colorSensor) == "Black" and self.lastDisk == 0:
             print("Black Disk Detected -> Not Sorting, Looking For White!")
             return False
-        elif detect_disk(self.colorSensor) == "White" and self.lastDisk == 1:
+        elif self.detect_disk(self.colorSensor) == "White" and self.lastDisk == 1:
             print("White Disk Detected -> Not Sorting, Looking for Black!")
             return False
         return False

@@ -32,7 +32,7 @@ def player_turn(board, user:int):
         user: 1 for "O", -1 for "X"
 
     Returns:
-        bool: True if the turn was successful, False otherwise.
+        position to be played now
     """
     userString = "O" if user == 1 else "X"
     pos = input(f"Enter {userString} position from [1...9]: ")
@@ -41,7 +41,7 @@ def player_turn(board, user:int):
         print("Space occupied, try again.")
         player_turn(board, user)
     board[pos - 1] = user
-    return True
+    return board, pos
 
 
 
@@ -121,7 +121,7 @@ def CompTurn(board):
                 pos = i  # Update the optimal position
 
     board[pos] = 1  # Set the board at the optimal position to 1, representing the computer's move
-
+    return board, pos
 
 def analyze_board(board):
     """
@@ -194,4 +194,13 @@ def main():
         display_board(board)
         print("X Loose!!! O Wins !!!!")
 
-       
+def chooseGame():
+    choice = input("Enter 1 for single player, 2 for multiplayer: ")
+    if int(choice) == 1:
+        print("Great, you will play against an Artificial Intelligence")
+        return int(choice)
+    elif int(choice) == 2:
+        print("Great, you will play multiplayer")
+        return int(choice)
+
+    else: chooseGame()

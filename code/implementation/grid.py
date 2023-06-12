@@ -124,7 +124,9 @@ def makeMove(pos, amspi):
     elif pos == 9:
         positionNine(amspi)
         runConveyor(amspi)
-        reset_board(amspi)        
+        reset_board(amspi)     
+    else: 
+        print("InvalidPositionError: please enter a position from 1 to 9")   
         
 def main():
     amspi = AMSpi()
