@@ -1,4 +1,4 @@
-
+from libraries.Drivers.LDR_driver.LDR_control import read_photoresistor
 
 def detect_x_axis_state(button1: FischerButton, button2: FischerButton, button3: FischerButton) -> int:
     """
@@ -25,4 +25,11 @@ def detect_x_axis_state(button1: FischerButton, button2: FischerButton, button3:
     else: 
         return -1
 
-def detect_disk_arrival()
+def disk_detected():
+    return read_photoresistor()
+
+def check_valid_move(move, board):
+    if board[pos - 1] != 0:
+        print("Space occupied, try again.")
+        return -1
+    elif move > 9
