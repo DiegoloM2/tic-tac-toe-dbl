@@ -26,11 +26,11 @@ class Sorting():
     def timeToSort(self, ):
         if self.detect_disk() == "White" and self.lastDisk == 0:
             print("White Disk Detected -> Time To Sort!")
-            lastDisk = 1
+            self.lastDisk = 1
             return True
         elif self.detect_disk() == "Black" and self.lastDisk == 1:
             print("Black Disk Detected -> Time To Sort!")
-            lastDisk = 0
+            self.lastDisk = 0
             return True
         elif self.detect_disk() == "Black" and self.lastDisk == 0:
             print("Black Disk Detected -> Not Sorting, Looking For White!")
