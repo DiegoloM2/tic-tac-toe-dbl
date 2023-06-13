@@ -24,12 +24,15 @@ while True:
         # Check if viewer has decided on how they want to play
         if gameChoice == -1:
             gameChoice = chooseGame()
+            if gameChoice == 1:
+                player = input("Enter to play 1(st) or 2(nd): ")
+                player = int(player)
+
             gameTurn = 1
 
 
+
         if gameChoice == 1:
-            player = input("Enter to play 1(st) or 2(nd): ")
-            player = int(player)
 
             if (gameChoice + player) % 2 == 1:
                 board, position = CompTurn(board)
