@@ -12,7 +12,9 @@ import time
 
 ### COLOUR CONSTANTS 
 # Upper RGB bounds for Black colour
-RED_BOUND_BLACK, BLUE_BOUND_BLACK, GREEN_BOUND_BLACK = 15, 15, 15
+RED_HBOUND_BLACK, BLUE_HBOUND_BLACK, GREEN_HBOUND_BLACK = 40, 40, 40
+RED_LBOUND_BLACK, BLUE_LBOUND_BLACK, GREEN_LBOUND_BLACK = 10, 10, 10
+
 # Lower RGB bounds for White colour
 RED_BOUND_WHITE, BLUE_BOUND_WHITE, GREEN_BOUND_WHITE = 150, 150, 150
 # Ratio for RB channels compared to G for Green colour
@@ -47,7 +49,7 @@ def run_colour_sensor(colourSensor, test=False):
     rgb = colourSensor.convertToRgb(luminance, MAX_LUMINANCE, MIN_LUMINANCE)
 
     # Determine the colour of the object
-    if (rgb[0]<RED_BOUND_BLACK and rgb[1]<BLUE_BOUND_BLACK and rgb[2]<GREEN_BOUND_BLACK): #Black is within defined lower RGB bounds
+    if (rgb[0]<RED_HBOUND_BLACK and rgb[1]<BLUE_HBOUND_BLACK and rgb[2]<GREEN_HBOUND_BLACK and rgb[0]>RED_LBOUND_BLACK and rgb[1]>BLUE_LBOUND_BLACK and rgb[2]>GREEN_LBOUND_BLACK): #Black is within defined lower RGB bounds
         colour_name = "Black"
     elif (rgb[0]>RED_BOUND_WHITE and rgb[1]>BLUE_BOUND_WHITE and rgb[2]>GREEN_BOUND_WHITE): #White is within defined upper RGB bounds
         colour_name = "White"
