@@ -17,6 +17,7 @@ class Sorting():
         return run_colour_sensor(self.colorSensor)
     def sort_disk(self):
         print("---- SORTING DISK ----")
+        time.sleep(1.5)
         set_angle(30)
         time.sleep(3)
         set_angle(-10)
