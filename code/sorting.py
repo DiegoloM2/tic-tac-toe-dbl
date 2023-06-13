@@ -11,14 +11,17 @@ class Sorting():
         # Last disk represents the last disk's color (0 if black, 1 if white)
         self.lastDisk = 0
         self.colorSensor = TCS34725()
-        set_angle(90)
+        set_angle(-10)
 
     def detect_disk(self,):
         return run_colour_sensor(self.colorSensor)
     def sort_disk(self):
+        print("---- SORTING DISK ----")
         set_angle(30)
-        time.sleep(5)
+        time.sleep(3)
         set_angle(90)
+        print("---- DISK SORTED ----\n")
+
 
     def timeToSort(self, ):
         if self.detect_disk() == "White" and self.lastDisk == 0:

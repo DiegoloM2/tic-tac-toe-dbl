@@ -28,7 +28,7 @@ while True:
 
 
         if gameChoice == 1:
-            player = input("Enter to play 1(st) or 2(nd) :")
+            player = input("Enter to play 1(st) or 2(nd): ")
             player = int(player)
 
             if (gameChoice + player) % 2 == 1:
