@@ -37,8 +37,11 @@ while True:
             if (gameChoice + player) % 2 == 1:
                 print("\n--- COMPUTER'S MOVE ---\n")
                 board, position = CompTurn(board)
+                
+                # Add index for makeMove function since it uses one index and minmax uses zero-index.
+                position += 1
             else:
-                print("\n CURRENT STATE OF BOARD ")
+                print("\nCURRENT STATE OF BOARD")
                 display_board(board)
                 
                 print("--- PLAYER'S MOVE ---")
