@@ -50,7 +50,7 @@ while True:
         else:
             player = player * -1
             display_board(board)
-            board, position = player_turn(player)
+            board, position = player_turn(board, player)
 
         makeMove(position, amspi)
         print("--- FINISHED EXECUTING MOVE ---\n")

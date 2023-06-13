@@ -12,7 +12,7 @@ def display_board(board):
         if (i > 0 and i % 3 == 0):
             board_display += "\n"
         if (board[i] == 0):
-            board_display += "- "
+            board_display += "    - "
         if (board[i] == 1):
             board_display += "O "
         if (board[i] == -1):
