@@ -19,7 +19,7 @@ class Sorting():
         print("---- SORTING DISK ----")
         set_angle(30)
         time.sleep(3)
-        set_angle(90)
+        set_angle(-10)
         print("---- DISK SORTED ----\n")
 
 
