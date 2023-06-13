@@ -21,8 +21,6 @@ def display_board(board):
     print(board_display)
     return board_display
 
-
-
 def player_turn(board, user:int):
     """
     Performs a turn for a User (X) by updating the board.
@@ -195,12 +193,15 @@ def main():
         print("X Loose!!! O Wins !!!!")
 
 def chooseGame():
-    choice = input("Enter 1 for single player, 2 for multiplayer: ")
-    if int(choice) == 1:
-        print("Great, you will play against an Artificial Intelligence")
-        return int(choice)
-    elif int(choice) == 2:
-        print("Great, you will play multiplayer")
-        return int(choice)
+    print("Now choose the game")
+    choice = None
+    while choice not in ['1', '2']:
+        choice = input("Enter 1 for single player, 2 for multiplayer: ")
 
-    else: chooseGame()
+    if choice == '1':
+        print("Great, you will play against an Artificial Intelligence")
+        return 1
+    elif choice == '2':
+        print("Great, you will play multiplayer")
+        return 2
+
