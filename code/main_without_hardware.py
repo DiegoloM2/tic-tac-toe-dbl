@@ -15,6 +15,12 @@ gameTurn = -1
 player = -1
 
 while True:
+    if gameTurn >= 9:
+        board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameChoice = -1
+        gameTurn = -1
+        player = -1
+
     position = -1
     # If it is time to sort, sort the disk
     # sorter.sort_disk()
@@ -32,7 +38,7 @@ while True:
 
     if gameChoice == 1:
 
-        if (gameChoice + player) % 2 == 1:
+        if (gameTurn + player) % 2 == 1:
             print("\n--- COMPUTER'S MOVE ---\n")
             board, position = CompTurn(board)
             
@@ -44,7 +50,6 @@ while True:
             board, position = player_turn(board, -1)  # Player 1's turn
         gameTurn += 1
     else:
-        print(gameChoice)
         print(f"--- PLAYER {player}'S MOVE ---")
 
         player = player * -1
