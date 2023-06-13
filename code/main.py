@@ -15,7 +15,12 @@ gameTurn = -1
 player = -1
 
 while True:
-    # Determine whether it is time to sort
+    if gameTurn >= 9:
+        board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        gameChoice = -1
+        gameTurn = -1
+        player = -1
+
     if sorter.timeToSort():
         position = -1
         # If it is time to sort, sort the disk
@@ -34,26 +39,32 @@ while True:
 
         if gameChoice == 1:
 
-            if (gameChoice + player) % 2 == 1:
+            if (gameTurn + player) % 2 == 1:
                 print("\n--- COMPUTER'S MOVE ---\n")
                 board, position = CompTurn(board)
                 
                 # Add index for makeMove function since it uses one index and minmax uses zero-index.
                 position += 1
             else:
-                print("\nCURRENT STATE OF BOARD")
-                display_board(board)
                 
                 print("--- PLAYER'S MOVE ---")
                 board, position = player_turn(board, -1)  # Player 1's turn
-            gameChoice += 1
+            gameTurn += 1
         else:
+            print(f"--- PLAYER {player}'S MOVE ---")
+
             player = player * -1
-            display_board(board)
             board, position = player_turn(board, player)
 
         makeMove(position, amspi)
         print("--- FINISHED EXECUTING MOVE ---\n")
+        print("\nCURRENT STATE OF BOARD")
+        display_board(board)
+        print("\n---- CHECKING FOR THE NEXT DISK ----\n\n")
 
-    time.sleep(0.3)
+
+        time.sleep(0.3)
+
+
+
 
