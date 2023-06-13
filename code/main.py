@@ -43,7 +43,6 @@ while True:
                 
                 print("--- PLAYER'S MOVE ---")
                 board, position = player_turn(board, -1)  # Player 1's turn
-            print("--- FINISHED EXECUTING MOVE ---\n")
             gameChoice += 1
         else:
             player = player * -1
@@ -51,5 +50,7 @@ while True:
             board, position = player_turn(player)
 
         makeMove(position, amspi)
+        print("--- FINISHED EXECUTING MOVE ---\n")
+
     time.sleep(0.3)
 
