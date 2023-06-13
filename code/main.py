@@ -35,10 +35,15 @@ while True:
         if gameChoice == 1:
 
             if (gameChoice + player) % 2 == 1:
+                print("\n--- COMPUTER'S MOVE ---\n")
                 board, position = CompTurn(board)
             else:
+                print("\n CURRENT STATE OF BOARD ")
                 display_board(board)
+                
+                print("--- PLAYER'S MOVE ---")
                 board, position = player_turn(board, -1)  # Player 1's turn
+            print("--- FINISHED EXECUTING MOVE ---\n")
             gameChoice += 1
         else:
             player = player * -1
