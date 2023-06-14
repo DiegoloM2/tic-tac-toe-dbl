@@ -8,8 +8,8 @@ GPIO.setmode(GPIO.BCM)
 LCD_LINE_1 = 0x80
 LCD_LINE_2 = 0xC0
 
-button_pin = 17
-confirm_pin = 27
+button_pin = 27
+confirm_pin = 22
 
 GPIO.setup(button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(confirm_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -24,9 +24,8 @@ def cleanup():
     GPIO.cleanup()
 
 def main():
-    global last_press_time, count
+    global last_press_time, count, confirmed
     lcd_16x2.main()
-    
     
     while True:
         if GPIO.input(button_pin) == GPIO.LOW:
@@ -54,7 +53,7 @@ def main():
                     # Perform additional actions here
                 last_press_time = current_time
 
-try:
+try:												
     main()
 except KeyboardInterrupt:
     cleanup()

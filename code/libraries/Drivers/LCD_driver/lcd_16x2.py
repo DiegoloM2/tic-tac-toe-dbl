@@ -90,11 +90,8 @@ def main():
   # Initialise display
   lcd_init()
 
-  while True:
-
-    # Send some test
-    lcd_string("Sup Fuckers! Got",LCD_LINE_1)
-    lcd_string("this mf to work!",LCD_LINE_2)
+  # Send some test
+  lcd_string("------ HI -------",LCD_LINE_1)
 
 def lcd_init():
   # Initialise display
