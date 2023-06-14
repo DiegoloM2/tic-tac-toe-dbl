@@ -56,7 +56,7 @@ def play_game():
     global board, gameChoice, gameTurn, player
 
     while True:
-        if game_finished():
+        if game_finished(board, gameTurn):
             reset_game()
             print("--------\nTHIS GAME HAS FINISHED, PLEASE TAKE THE DISKS OFF THE GRID AND TYPE any key once you're finished so we can continue")
             input()
