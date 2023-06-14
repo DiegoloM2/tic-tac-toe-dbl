@@ -2,6 +2,7 @@ from libraries.Sorting.sorting import Sorting
 from libraries.TicTacToe.tic_tac_toe import *
 from libraries.Grid.grid import *
 from libraries.Drivers.dc_driver.AMSpi import *
+from libraries.Input.input_demo import *
 
 # Disable GPIO warnings
 GPIO.setwarnings(False)
@@ -28,6 +29,14 @@ player = -1
 
 # Reset the game board to start playing
 reset_board(amspi)
+    
+def choose_game():
+    """Lets the user choose a game mode: 1 = comp vs person, 2: person vs person, 3: rand vs comp"""
+    output_text("CHOOSE GAMEMODE")
+    time.sleep(1)
+    output_text("1: solo 2: multi 3: spectator")
+    time.sleep(2)
+    return input_number(3)
     
 def reset_game():
     """
@@ -58,8 +67,13 @@ def play_game():
     while True:
         if game_finished(board, gameTurn):
             reset_game()
-            print("--------\nTHIS GAME HAS FINISHED, PLEASE TAKE THE DISKS OFF THE GRID AND TYPE any key once you're finished so we can continue")
-            input()
+
+            output_text("The game has finished")
+            time.sleep(2)
+            output_text("Take disks off and press red to continue")
+            reset_game()
+
+            input_number(1)
         
         if sorter.timeToSort():
             position = -1
@@ -69,10 +83,13 @@ def play_game():
             
             # Check if player has chosen the game mode
             if gameChoice == -1:
-                gameChoice = chooseGame()
+                gameChoice = choose_game()
                 if gameChoice == 1:
-                    player = input("Enter 1 to play first or 2 to play second: ")
-                    player = int(player)
+                    output_text("Enter 1 to play first")
+                    time.sleep(2)
+                    output_text("or 2 to play second")
+                    time.sleep(2)
+                    player = int(input_number(2))
                 gameTurn = 1
     
             if gameChoice == 1:
@@ -97,10 +114,8 @@ def play_game():
             print("\n---- CHECKING FOR THE NEXT DISK ----\n\n")
             gameTurn += 1
     
-        time.sleep(0.3)	
+        time.sleep(0.3)
 
 play_game()
-
-
 
 
