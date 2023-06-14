@@ -12,7 +12,7 @@ import time
 ### COLOUR CONSTANTS 
 # Upper RGB bounds for Black colour
 RED_BOUND_BLACK, BLUE_BOUND_BLACK, GREEN_BOUND_BLACK = 35, 35, 35
-RED_LB_BLACK, BLUE_LB_BLACK, GREEN_LB_BLACK = 10, 10, 10
+RED_LB_BLACK, BLUE_LB_BLACK, GREEN_LB_BLACK = 0, 0, 0
 # Lower RGB bounds for White colour
 RED_BOUND_WHITE, BLUE_BOUND_WHITE, GREEN_BOUND_WHITE = 180, 180, 180
 # Ratio for RB channels compared to G for Green colour
