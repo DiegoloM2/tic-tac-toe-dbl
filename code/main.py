@@ -28,8 +28,7 @@ player = -1
 
 # Reset the game board to start playing
 reset_board(amspi)
-
-
+    
 def reset_game():
     """
     Resets the game state by resetting the board and game variables.
@@ -39,6 +38,16 @@ def reset_game():
     gameChoice = -1
     gameTurn = -1
     player = -1
+    
+    
+def game_finished(board, gameTurn):
+    """
+    Checks if the game has finished.
+    """
+    won = analyze_board(board) in [1, -1]
+    if gameTurn > 9 or won: return True
+    return False
+
 
 def play_game():
     """
@@ -47,8 +56,7 @@ def play_game():
     global board, gameChoice, gameTurn, player
 
     while True:
-        won = analyze_board(board) in [1, -1]
-        if gameTurn > 9 or won:
+        if game_finished():
             reset_game()
             print("--------\nTHIS GAME HAS FINISHED, PLEASE TAKE THE DISKS OFF THE GRID AND TYPE any key once you're finished so we can continue")
             input()
@@ -89,9 +97,8 @@ def play_game():
             print("\n---- CHECKING FOR THE NEXT DISK ----\n\n")
             gameTurn += 1
     
-            time.sleep(0.3)
+        time.sleep(0.3)	
 
-reset_game()
 play_game()
 
 

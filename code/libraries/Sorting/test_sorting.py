@@ -1,4 +1,3 @@
-import pytest
 from libraries.Sorting.sorting import Sorting
 from libraries.Drivers.color_driver.TCS34725_class import TCS34725
 import time
@@ -32,3 +31,7 @@ def test_sort_disk():
     time.sleep(10)
     print("YOU SHOULD SEE THE SERVOMOTOR TURN TO AN ANGLE OF ~30 DEGREES TO PUSH THE DISK FOLLOWED BY 5 SECONDS OF INACTIVITY")
     sorter.sort_disk()
+    
+test_detect_white_disk()
+test_detect_black_disk()
+test_sort_disk()
