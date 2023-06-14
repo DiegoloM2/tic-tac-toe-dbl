@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import lcd_16x2
+import libraries.Drivers.LCD_driver.lcd_16x2 as lcd_16x2
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
