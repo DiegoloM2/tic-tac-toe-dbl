@@ -27,16 +27,47 @@ confirmed = False
 def cleanup():
     GPIO.cleanup()
     
+def output_text(text):
+    """
+    Displays text message on the 16x2 LCD screen.
+
+    Args:
+        text (str): The text message to be displayed.
+
+    """
+    lcd_16x2.main()
     
-def enterNumber(limit):
+    # Display the first 16 characters of the text on the first line of the LCD screen
+    lcd_16x2.lcd_string(text[:16], LCD_LINE_1)
+    
+    # If the text length exceeds 16 characters, display the remaining text on the second line
+    if len(text) > 16:
+        lcd_16x2.lcd_string(text[16:], LCD_LINE_2)
+
+    
+    
+def input_number(limit):
+    """
+    Reads and returns a number input from the user within the specified limit.
+
+    Args:
+        limit (int): The upper limit for the input number.
+
+    Returns:
+        int: The number input by the user.
+
+    """
     count = 0
     last_press_time = 0
     debounce_delay = 0.4
-    confirm_pressed = False
-    confirmed = False
-    
+    lcd_16x2.main()
+    lcd_16x2.lcd_string(f"Black ADDS", LCD_LINE_1)
+    lcd_16x2.lcd_string(f"RED CONFIRMS", LCD_LINE_2)
+    time.sleep(2)
+    lcd_16x2.lcd_string(f"Enter number <{limit}", LCD_LINE_1)
+    lcd_16x2.lcd_string(f"", LCD_LINE_2)
+
     while True:
-        # Check if the button is pressed
         if counter_button.isPressed():
             current_time = time.time()
             
@@ -45,14 +76,12 @@ def enterNumber(limit):
                 print("Button Pressed!")
                 count += 1
                 
-                # Reset the count if it exceeds 9
-                if count > 9:
+                # Reset the count if it exceeds the limit
+                if count > limit:
                     count = 1
-                print("Count: ", count)
-                
+
                 # Update LCD display with button press information
-                lcd_16x2.lcd_string("Button Pressed!", LCD_LINE_1)
-                lcd_16x2.lcd_string("Count: {}".format(count), LCD_LINE_2)
+                lcd_16x2.lcd_string(f"  {count}", LCD_LINE_2)
                 
                 last_press_time = current_time
                 confirmed = False
@@ -64,77 +93,7 @@ def enterNumber(limit):
             # Apply debounce delay to avoid multiple button presses
             if current_time - last_press_time > debounce_delay:
                 print("Confirm Button Pressed!")
-                
-                # Check if the button press is confirmed
-                if not confirmed:
-                    confirmed = True
-                    print("Confirmed! Count is:", count)
-                    
-                    # Update LCD display with confirmation message and count
-                    lcd_16x2.lcd_string("Confirmed!", LCD_LINE_1)
-                    lcd_16x2.lcd_string("Count is: {}".format(count), LCD_LINE_2)
-                    
-                    # Perform additional actions here
-                    
+                return count
                 last_press_time = current_time
 
     
-    
-
-    
-
-def main():
-    """
-    Entry point of the program.
-    """
-    global last_press_time, count, confirmed
-    lcd_16x2.main()
-    
-    while True:
-        # Check if the button is pressed
-        if GPIO.input(button_pin) == GPIO.LOW:
-            current_time = time.time()
-            
-            # Apply debounce delay to avoid multiple button presses
-            if current_time - last_press_time > debounce_delay:
-                print("Button Pressed!")
-                count += 1
-                
-                # Reset the count if it exceeds 9
-                if count > 9:
-                    count = 1
-                print("Count: ", count)
-                
-                # Update LCD display with button press information
-                lcd_16x2.lcd_string("Button Pressed!", LCD_LINE_1)
-                lcd_16x2.lcd_string("Count: {}".format(count), LCD_LINE_2)
-                
-                last_press_time = current_time
-                confirmed = False
-
-        # Check if the confirm button is pressed
-        elif GPIO.input(confirm_pin) == GPIO.LOW:
-            current_time = time.time()
-            
-            # Apply debounce delay to avoid multiple button presses
-            if current_time - last_press_time > debounce_delay:
-                print("Confirm Button Pressed!")
-                
-                # Check if the button press is confirmed
-                if not confirmed:
-                    confirmed = True
-                    print("Confirmed! Count is:", count)
-                    
-                    # Update LCD display with confirmation message and count
-                    lcd_16x2.lcd_string("Confirmed!", LCD_LINE_1)
-                    lcd_16x2.lcd_string("Count is: {}".format(count), LCD_LINE_2)
-                    
-                    # Perform additional actions here
-                    
-                last_press_time = current_time
-
-
-try:												
-    main()
-except KeyboardInterrupt:
-    cleanup()
