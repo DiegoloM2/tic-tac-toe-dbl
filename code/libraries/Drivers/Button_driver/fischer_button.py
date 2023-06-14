@@ -4,6 +4,7 @@ import time
 button1_pin = 9
 button2_pin = 11
 
+
 class FischerButton():
     def __init__(self, button_pin):
         self.button_pin = button_pin
