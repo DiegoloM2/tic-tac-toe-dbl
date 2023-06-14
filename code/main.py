@@ -17,12 +17,14 @@ player = -1
 reset_board(amspi)
 
 while True:
-    if gameTurn >= 9:
+    won = analyze_board(board) in [1, -1]
+    if gameTurn > 9 or won:
         board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         gameChoice = -1
         gameTurn = -1
         player = -1
-
+        print("--------\nTHIS GAME HAS FINISHED, PLEASE TAKE THE DISKS OF THE GRID AND TYPE any key once your finished so we can continue")
+        input()
     if sorter.timeToSort():
         position = -1
         # If it is time to sort, sort the disk
@@ -51,7 +53,6 @@ while True:
                 
                 print("--- PLAYER'S MOVE ---")
                 board, position = player_turn(board, -1)  # Player 1's turn
-            gameTurn += 1
         else:
             print(f"--- PLAYER {player}'S MOVE ---")
 
@@ -63,6 +64,8 @@ while True:
         print("\nCURRENT STATE OF BOARD")
         display_board(board)
         print("\n---- CHECKING FOR THE NEXT DISK ----\n\n")
+        gameTurn += 1
+
 
 
         time.sleep(0.3)
