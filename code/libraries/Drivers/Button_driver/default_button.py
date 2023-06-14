@@ -9,4 +9,4 @@ class Button():
         GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         self.pin = pin
     def isPressed(self):
-        return GPIO.input(button_pin) == GPIO.LOW
+        return GPIO.input(self.pin) == GPIO.LOW
