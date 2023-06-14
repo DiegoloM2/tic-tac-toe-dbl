@@ -1,6 +1,6 @@
-from sorting import Sorting
+from libraries.Sorting.sorting import Sorting
 from libraries.TicTacToe.tic_tac_toe import *
-from grid import *
+from libraries.Grid.grid import *
 from libraries.Drivers.dc_driver.AMSpi import *
 
 GPIO.setwarnings(False)

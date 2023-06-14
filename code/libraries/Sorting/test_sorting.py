@@ -1,5 +1,5 @@
 import pytest
-from sorting import Sorting
+from libraries.Sorting.sorting import Sorting
 from libraries.Drivers.color_driver.TCS34725_class import TCS34725
 import time
 

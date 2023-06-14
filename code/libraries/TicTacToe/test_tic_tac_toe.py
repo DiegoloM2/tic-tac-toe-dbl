@@ -1,4 +1,4 @@
-from tic_tac_toe import display_board, player_turn, minimax, analyze_board
+from libraries.TicTacToe.tic_tac_toe import display_board, player_turn, minimax, analyze_board
 import pytest
 
 def test_display_board():
