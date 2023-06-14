@@ -10,6 +10,12 @@
 - In the root we have tic_tact_toe.py which was the first version of the algo.
 
 
+# Getting Started
+1. Install Requirements
+`pip install -r requirements.txt'
+2. Set python path in raspberry pi: `PYTHONPATH="/home/pi/tic-tac-toe-dbl/code"`
+
+
 # Testing
 The project includes tests to ensure the correctness of its functionality. We use [pytest](https://docs.pytest.org/) as our testing framework. To run the tests, follow these steps:
 
