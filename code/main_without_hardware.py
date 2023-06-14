@@ -1,5 +1,5 @@
 from sorting import Sorting
-from TicTacToe.tic_tac_toe import *
+from libraries.TicTacToe.tic_tac_toe import *
 from grid import *
 from libraries.Drivers.dc_driver.AMSpi import *
 

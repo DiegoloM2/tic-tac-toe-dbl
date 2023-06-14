@@ -11,7 +11,7 @@ class Sorting():
         # Last disk represents the last disk's color (0 if black, 1 if white)
         self.lastDisk = 0
         self.colorSensor = TCS34725()
-        set_angle(-10)
+        set_angle(0)
 
     def detect_disk(self,):
         return run_colour_sensor(self.colorSensor)
@@ -19,8 +19,8 @@ class Sorting():
         print("---- SORTING DISK ----")
         time.sleep(1.5)
         set_angle(30)
-        time.sleep(3)
-        set_angle(-10)
+        time.sleep(1)
+        set_angle(0)
         print("---- DISK SORTED ----\n")
 
 

@@ -14,14 +14,14 @@ def display_board(board):
         if (board[i] == 0):
             board_display += "    - "
         if (board[i] == 1):
-            board_display += "O "
+            board_display += "    O "
         if (board[i] == -1):
-            board_display += "X "
+            board_display += "    X "
     board_display += "\n\n"
     print(board_display)
     return board_display
 
-def player_turn(board, user:int):
+def player_turn(board, user: int):
     """
     Performs a turn for a User (X) by updating the board.
 
@@ -33,13 +33,23 @@ def player_turn(board, user:int):
         position to be played now
     """
     userString = "O" if user == 1 else "X"
-    pos = input(f"Enter {userString} position from [1...9]: ")
-    pos = int(pos)
-    if board[pos - 1] != 0:
-        print("Space occupied, try again.")
-        player_turn(board, user)
-    board[pos - 1] = user
-    return board, pos
+    
+    while True:
+        pos = input(f"Enter {userString} position from [1...9]: ")
+        try:
+            pos = int(pos)
+            if pos < 1 or pos > 9:
+                print("Invalid position. Please enter a number from 1 to 9.")
+                continue
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
+        
+        if board[pos - 1] != 0:
+            print("Space occupied, try again.")
+        else:
+            board[pos - 1] = user
+            return board, pos
 
 
 

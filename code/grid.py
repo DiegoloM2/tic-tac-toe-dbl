@@ -1,7 +1,7 @@
 from libraries.Drivers.dc_driver.AMSpi import *
 import RPi.GPIO as GPIO
 import time
-from TicTacToe.tic_tac_toe import *
+from libraries.TicTacToe.tic_tac_toe import *
 
 # ------ Grid Control ------ #
     
@@ -20,7 +20,7 @@ def reset_board(amspi):
 
     """
     amspi.run_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Run the specified DC motors
-    time.sleep(2.5)  # Wait for 2.5 seconds
+    time.sleep(4)  # Wait for 4 seconds
     amspi.stop_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Stop the specified DC motors
 
 def positionTwo(amspi):
@@ -28,7 +28,7 @@ def positionTwo(amspi):
     Moves the conveyor to position 2.
     """
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(0.8)
+    time.sleep(1.15)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
 
 def positionThree(amspi):
@@ -36,58 +36,58 @@ def positionThree(amspi):
     Moves the conveyor to position 3.
     """
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(1.6)
+    time.sleep(2.3)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
     
 def positionFour(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(0.65)
+    time.sleep(0.8)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     
 def positionFive(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(0.65)
+    time.sleep(0.8)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     time.sleep(0.1)
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(0.8)
+    time.sleep(1.15)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
     
 def positionSix(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(0.65)
+    time.sleep(0.8)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     time.sleep(0.1)
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(1.6)
+    time.sleep(2.3)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
 
 def positionSeven(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(1.3)
+    time.sleep(1.6)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     
 def positionEight(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(1.3)
+    time.sleep(1.6)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     time.sleep(0.1)
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(0.8)
+    time.sleep(1.15)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
     
 def positionNine(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_3], clockwise=False)
-    time.sleep(1.3)
+    time.sleep(1.6)
     amspi.stop_dc_motors([amspi.DC_Motor_3])
     time.sleep(0.1)
     amspi.run_dc_motors([amspi.DC_Motor_4], clockwise=False)
-    time.sleep(1.6)
+    time.sleep(2.3)
     amspi.stop_dc_motors([amspi.DC_Motor_4])
     
 def runConveyor(amspi):
     amspi.run_dc_motors([amspi.DC_Motor_2], clockwise=False)
-    time.sleep(3.5)
+    time.sleep(4.5)
     amspi.stop_dc_motors([amspi.DC_Motor_2])
 
 def makeMove(pos, amspi):
