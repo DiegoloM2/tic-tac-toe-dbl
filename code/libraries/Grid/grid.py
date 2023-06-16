@@ -16,7 +16,7 @@ def reset_board(amspi):
     - None
 
     Side Effects:
-    - Runs the specified DC motors for a duration of 2.5 seconds (one after another)
+    - Runs the specified DC motors for a duration of 3 seconds (one after another)
         and then stops them.
 
     """
