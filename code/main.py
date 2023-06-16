@@ -2,6 +2,7 @@ from libraries.Sorting.sorting import Sorting
 from libraries.TicTacToe.tic_tac_toe import *
 from libraries.Grid.grid import *
 from libraries.Drivers.dc_driver.AMSpi import *
+<<<<<<< HEAD
 from libraries.Input.input_demo import *
 
 # Disable GPIO warnings
@@ -32,6 +33,7 @@ reset_board(amspi)
     
 def choose_game():
     """Lets the user choose a game mode: 1 = comp vs person, 2: person vs person, 3: rand vs comp"""
+<<<<<<< HEAD
     output_text("CHOOSE GAMEMODE")
     time.sleep(1)
     output_text("1: solo 2: multi 3: spectator")
