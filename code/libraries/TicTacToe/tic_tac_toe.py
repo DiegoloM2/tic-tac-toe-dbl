@@ -1,3 +1,5 @@
+from libraries.Input.input_demo import *
+
 def display_board(board):
     """
     Displays the Tic-Tac-Toe board.
@@ -35,18 +37,27 @@ def player_turn(board, user: int):
     userString = "O" if user == 1 else "X"
     
     while True:
-        pos = input(f"Enter {userString} position from [1...9]: ")
+        output_text("Enter position")
+        time.sleep(1)
+        pos = input_number(9)
         try:
             pos = int(pos)
             if pos < 1 or pos > 9:
-                print("Invalid position. Please enter a number from 1 to 9.")
+                output_text("Invalid position.")
+                time.sleep(1)
+                output_text("Enter a number between 1 and 9.")
+                time.sleep(1)
                 continue
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            output_text("Invalid input.")
+            time.sleep(1)
+            output_text("Please enter a number.")
+            time.sleep(1)
             continue
         
         if board[pos - 1] != 0:
-            print("Space occupied, try again.")
+            output_text("Space occupied, try again.")
+            time.sleep(1)
         else:
             board[pos - 1] = user
             return board, pos
