@@ -16,12 +16,17 @@ def reset_board(amspi):
     - None
 
     Side Effects:
-    - Runs the specified DC motors for a duration of 2.5 seconds and then stops them.
+    - Runs the specified DC motors for a duration of 2.5 seconds (one after another)
+        and then stops them.
 
     """
-    amspi.run_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Run the specified DC motors
-    time.sleep(4)  # Wait for 4 seconds
-    amspi.stop_dc_motors([amspi.DC_Motor_3, amspi.DC_Motor_4])  # Stop the specified DC motors
+    amspi.run_dc_motors([amspi.DC_Motor_3])
+    time.sleep(3)  # Wait for 3 seconds
+    amspi.run_dc_motors([amspi.DC_Motor_4])
+    time.sleep(3)  # Wait for 3 seconds
+    amspi.stop_dc_motors([amspi.DC_Motor_3])
+    amspi.stop_dc_motors([amspi.DC_Motor_4])
+
 
 def positionTwo(amspi):
     """
